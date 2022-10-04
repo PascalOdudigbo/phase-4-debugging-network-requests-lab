@@ -62,12 +62,27 @@ developing your own process.
 
 - Add a new toy when the toy form is submitted
 
-  - How I debugged:
+  - How I debugged: 
+    * I checked the console and realized it's a server error.
+    * Then i went to the network tab and checked out the response.
+    * The issue was "uninitialized constant ToysController::Toys". 
+    * There's no model Toys, just Toy so i corrected it in the create action of *  the toys controler 
 
 - Update the number of likes for a toy
 
   - How I debugged:
+  * checked the console for the error message
+  * "Uncaught (in promise) SyntaxError: Unexpected end of JSON input"
+  * Our fetch request in frontend is expecting a json response so i have to render json in the create
+  controller action
+
 
 - Donate a toy to Goodwill (and delete it from our database)
 
   - How I debugged:
+  * checked the server terminal for the error message
+  * "ActionController::RoutingError (No route matches [DELETE] "/toys/9")"
+  * Checked the toys controller to ensure the destroy action is present
+  * checked the routes.rb and added the destroy route to the toys resource 
+
+  
